@@ -1,26 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #faf9f7;
+  --bg-card: #ffffff;
+  --text-primary: #2c2c2c;
+  --text-secondary: #6b6b6b;
+  --text-light: #9e9e9e;
+  --accent: #b89b72;
+  --accent-light: #e8dfd3;
+  --border: #e5ddd4;
+  --divider: #ede8e3;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-serif {
+  font-family: "Noto Serif KR", serif;
+}
+
+/* 섹션 공통 */
+.section {
+  padding: 80px 24px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: "Noto Serif KR", serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.divider {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+  margin: 0 auto;
+}
+
+.divider-h {
+  width: 48px;
+  height: 1px;
+  background: var(--border);
+  margin: 0 auto;
+}
+
+/* 스크롤 애니메이션 */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 갤러리 슬라이더 */
+.gallery-scroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
 }
